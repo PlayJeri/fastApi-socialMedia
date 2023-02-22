@@ -1,0 +1,12 @@
+{
+    "cSpell.words": [
+        "autoflush",
+        "conint",
+        "DBAPI",
+        "isouter",
+        "ondelete",
+        "passlib",
+        "sessionmaker",
+        "sqltypes"
+    ]
+}
