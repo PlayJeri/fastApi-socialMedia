@@ -25,7 +25,7 @@ ACCESS_TOKEN_EXPIRE_TIME = os.getenv('ACCESS_TOKEN_EXPIRE_TIME')
 def create_access_token(data: dict):
 
     to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_TIME)
+    expire = datetime.utcnow() + timedelta(minutes=int(ACCESS_TOKEN_EXPIRE_TIME))
     to_encode.update({"exp" : expire})
     token = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
