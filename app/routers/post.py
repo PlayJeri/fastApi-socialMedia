@@ -15,12 +15,12 @@ router = APIRouter(
 
 
 @router.get("/", response_model=List[schemas.PostResponse])
-def get_posts(db: Session = Depends(get_db), limit: int = 10, skip: int = 0, search: Optional[str] = ""):
+def get_posts(db: Session = Depends(get_db), limit: int = 5, skip: int = 0, search: Optional[str] = ""):
 
     posts = db.query(models.Post, func.count(models.Like.post_id).label("likes")).join(
         models.Like, models.Like.post_id == models.Post.id, isouter=True).group_by(
         models.Post.id).filter(models.Post.title.contains(search)
-        ).order_by(models.Post.created_at.asc()).limit(limit).offset(skip).all()
+        ).order_by(models.Post.created_at.desc()).limit(limit).offset(skip).all()
 
    
     return posts

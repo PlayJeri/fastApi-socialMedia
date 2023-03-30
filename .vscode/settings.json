@@ -3,6 +3,7 @@
         "autoflush",
         "conint",
         "DBAPI",
+        "dotenv",
         "isouter",
         "ondelete",
         "passlib",
